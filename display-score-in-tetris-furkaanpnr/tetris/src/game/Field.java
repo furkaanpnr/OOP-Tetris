@@ -222,6 +222,7 @@ public class Field {
 
 			if (isFullRow) {
 				this.shiftRows(row);
+				setDestroyedRowCounter(getDestroyedRowCounter() + 1);
 				this.setIsRowDestroyed(true);
 			}
 		}
@@ -234,6 +235,13 @@ public class Field {
 			}
 		}
 	}
+
+	private int destroyedRowCounter = 0;
+
+	public void resetDestroyedRowCounter(){this.destroyedRowCounter = 0;}
+	public int getDestroyedRowCounter(){return destroyedRowCounter;}
+
+	public void setDestroyedRowCounter(int destroyedRowCounter){this.destroyedRowCounter = destroyedRowCounter;}
 
 	public boolean getIsRowDestroyed(){return isRowDestroyed;}
 

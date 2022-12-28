@@ -146,7 +146,8 @@ public class Game {
 			currentPiece.tick();
 		}
 		if(field.getIsRowDestroyed()){
-			setScore(getScore() + 10);
+			setScore(getScore() + (field.getDestroyedRowCounter() * 10));
+			field.resetDestroyedRowCounter();
 			field.setIsRowDestroyed(false);
 		}
 	}
